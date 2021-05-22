@@ -61,7 +61,6 @@ public class ConcurrentSpider implements Runnable{
             }
             urlCount++;
         }
-        System.out.println("ConcurrentSpider done with URLs");
     }
     public void processPage(String url) {
         String html = helper.retrieve(url);

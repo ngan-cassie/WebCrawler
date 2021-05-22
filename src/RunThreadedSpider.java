@@ -36,9 +36,12 @@ public class RunThreadedSpider {
             ReadingSpeed speedCalculator = new ReadingSpeed();
             String article = speedCalculator.getText(url);
             String txt = speedCalculator.article.get(article);
-            if (txt != null) displayReadingSpeed.add(txt + " takes " + speedCalculator.readingSpeed(article) + " minutes to read");
+            String entry = String.format("%100s: %2s minutes", txt,  Integer.toString(speedCalculator.readingSpeed(article)));
+            if (txt != null) displayReadingSpeed.add(entry);
         }
-        for (String res: displayReadingSpeed) System.out.println(res);
+        for (String res: displayReadingSpeed) {
+            System.out.println(res);
+        }
     }
     public static Thread startThread(int threadNum) {
         Thread t;
