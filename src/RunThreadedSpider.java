@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class RunThreadedSpider {
-    private static String BEGINNING_URL = "https://www.theatlantic.com/";
+    private static String BEGINNING_URL;
     private static int NUM_THREADS = 3;
 
     private static SharedSpiderData sharedData = new SharedSpiderData();
@@ -11,6 +11,9 @@ public class RunThreadedSpider {
         NUM_THREADS = num_threads;
     }
     public static void main(String[] args) {
+        System.out.print("Paste in the article URL: ");
+        Scanner sc = new Scanner(System.in);
+        BEGINNING_URL = sc.nextLine();
        Thread threads[] = new Thread[NUM_THREADS];
         for (int i=0; i < NUM_THREADS; i++) {
             threads[i] = startThread(i);
