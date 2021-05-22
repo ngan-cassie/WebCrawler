@@ -22,7 +22,8 @@ public class ReadingSpeed {
                 Elements paragraphs = doc.select("p");
                 String articleText = paragraphs.text();
 
-                String title = doc.select("title").text();
+//                String title = doc.select("title").text();
+            String title = doc.title();
                 article.put(articleText, title);
             return articleText;
         } catch (IOException e) {
